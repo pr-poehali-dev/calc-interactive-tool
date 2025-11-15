@@ -1,52 +1,51 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import NumberConverter from '@/components/NumberConverter';
-import ArithmeticCalculator from '@/components/ArithmeticCalculator';
-import PracticeGenerator from '@/components/PracticeGenerator';
+import TruthTableVisualizer from '@/components/TruthTableVisualizer';
+import LogicCircuitBuilder from '@/components/LogicCircuitBuilder';
+import ExpressionSolver from '@/components/ExpressionSolver';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background py-12 px-4">
-      <div className="max-w-5xl mx-auto space-y-8">
-        <div className="text-center space-y-4 animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-8 px-4">
+      <div className="max-w-7xl mx-auto space-y-6">
+        <div className="text-center space-y-3 animate-fade-in">
           <div className="flex items-center justify-center gap-3">
-            <Icon name="Calculator" size={48} className="text-primary" />
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Калькулятор систем счисления
+            <Icon name="Cpu" size={56} className="text-primary" />
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              Визуализация булевой алгебры
             </h1>
           </div>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Интерактивный образовательный инструмент для изучения двоичной, восьмеричной, десятичной и шестнадцатеричной систем счисления
+          <p className="text-slate-400 text-lg max-w-3xl mx-auto">
+            Интерактивный инструмент для изучения логических функций, построения схем и анализа булевых выражений
           </p>
         </div>
 
-        <Tabs defaultValue="converter" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 h-14 p-1">
-            <TabsTrigger value="converter" className="text-base">
-              <Icon name="RefreshCw" size={18} className="mr-2" />
-              Перевод чисел
+        <Tabs defaultValue="truth-table" className="w-full">
+          <TabsList className="grid w-full grid-cols-3 h-16 p-1 bg-slate-900/50 border border-slate-700">
+            <TabsTrigger value="truth-table" className="text-base data-[state=active]:bg-primary/20">
+              <Icon name="Table" size={20} className="mr-2" />
+              Таблицы истинности
             </TabsTrigger>
-            <TabsTrigger value="arithmetic" className="text-base">
-              <Icon name="Plus" size={18} className="mr-2" />
-              Арифметика
+            <TabsTrigger value="circuit" className="text-base data-[state=active]:bg-secondary/20">
+              <Icon name="Boxes" size={20} className="mr-2" />
+              Конструктор схем
             </TabsTrigger>
-            <TabsTrigger value="practice" className="text-base">
-              <Icon name="Trophy" size={18} className="mr-2" />
-              Практика
+            <TabsTrigger value="solver" className="text-base data-[state=active]:bg-accent/20">
+              <Icon name="FileCode" size={20} className="mr-2" />
+              Решатель выражений
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="converter" className="mt-6 animate-fade-in">
-            <NumberConverter />
+          <TabsContent value="truth-table" className="mt-6 animate-fade-in">
+            <TruthTableVisualizer />
           </TabsContent>
 
-          <TabsContent value="arithmetic" className="mt-6 animate-fade-in">
-            <ArithmeticCalculator />
+          <TabsContent value="circuit" className="mt-6 animate-fade-in">
+            <LogicCircuitBuilder />
           </TabsContent>
 
-          <TabsContent value="practice" className="mt-6 animate-fade-in">
-            <PracticeGenerator />
+          <TabsContent value="solver" className="mt-6 animate-fade-in">
+            <ExpressionSolver />
           </TabsContent>
         </Tabs>
       </div>
